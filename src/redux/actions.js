@@ -1,4 +1,4 @@
-export const addContact = ( newContact) => {
+export const addContact = newContact => {
 	return {
 		type: 'contacts/addContact',
 		payload: newContact,
@@ -18,3 +18,10 @@ export const setFilterName = newName => {
 		payload: newName,
 	};
 };
+
+// export const fiteredContacts = array => {
+//     return {
+//         type: 'contacts/filteredContacts',
+//         payload:
+//     }
+// }

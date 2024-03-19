@@ -5,16 +5,13 @@ import { setFilterName } from '../../redux/actions';
 const SearchBar = () => {
 	const dispatch = useDispatch();
 	const filterValue = useSelector(state => state.filter.name);
-	const handleChange = e => {
-		let searchValue = e.target.value;
-		dispatch(setFilterName(searchValue));
-	};
+	console.log(filterValue);
 
 	return (
 		<>
 			<p>Find contacts by name</p>
 			<input
-				onChange={handleChange}
+				onChange={e => dispatch(setFilterName(e.target.value))}
 				className={css.searchBar}
 				type="text"
 				value={filterValue}
