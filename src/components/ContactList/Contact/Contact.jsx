@@ -1,13 +1,16 @@
 import { FaPhone } from 'react-icons/fa6';
 import { IoPerson } from 'react-icons/io5';
 import css from './Contact.module.css';
+import { deleteContact } from '../../../redux/actions';
+import { useDispatch } from 'react-redux';
 
-const Contact = ({ id, name, number, deleteContact }) => {
+const Contact = ({ id, name, number }) => {
+	const dispatch = useDispatch();
 	const handleRemoveClick = e => {
 		if (e.target.nodeName !== 'BUTTON') {
 			return;
 		}
-		deleteContact(e.currentTarget.id);
+		dispatch(deleteContact(e.currentTarget.id));
 	};
 	return (
 		<>

@@ -1,9 +1,13 @@
 import css from './SearchBox.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { setFilterName } from '../../redux/actions';
 
-const SearchBar = ({ value, onChange }) => {
+const SearchBar = () => {
+	const dispatch = useDispatch();
+	const filterValue = useSelector(state => state.filter.name);
 	const handleChange = e => {
 		let searchValue = e.target.value;
-		onChange(searchValue);
+		dispatch(setFilterName(searchValue));
 	};
 
 	return (
@@ -13,7 +17,7 @@ const SearchBar = ({ value, onChange }) => {
 				onChange={handleChange}
 				className={css.searchBar}
 				type="text"
-				value={value}
+				value={filterValue}
 				placeholder="Search by name"
 			/>
 		</>
