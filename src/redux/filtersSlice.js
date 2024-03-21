@@ -1,36 +1,20 @@
-import { createAction, createReducer } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-	filter: {
-		name: '',
+const slice = createSlice({
+	name: 'filters',
+	initialState: {
+		filters: { name: '' },
 	},
-};
-export const setFilterName = createAction('filter/setFilterName');
-export const filtersReducer = createReducer(initialState, builder => {
-	builder.addCase(
-		setFilterName,
-		(state, action) => (state.filter.name = action.payload)
-	);
+	reducers: {
+		changeFilter(state, action) {
+			state.filters.name = action.payload;
+		},
+	},
 });
 
-// export const filtersReducer = (state = initialState, action) => {
-// 	switch (action.type) {
-// 		case 'filter/setFilterName':
-// 			return {
-// 				...state,
-// 				filter: {
-// 					...state.filter,
-// 					name: action.payload,
-// 				},
-// 			};
-// 		default:
-// 			return state;
-// 	}
-// };
+export const { changeFilter } = slice.actions;
 
-// export const setFilterName = newName => {
-// 	return {
-// 		type: 'filter/setFilterName',
-// 		payload: newName,
-// 	};
-// };
+console.log(changeFilter(''));
+
+export const selectNameFilter = state => state.filters.name;
+export default slice.reducer;
