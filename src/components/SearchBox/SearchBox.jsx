@@ -5,7 +5,6 @@ import { changeFilter, selectNameFilter } from '../../redux/filtersSlice';
 const SearchBar = () => {
 	const dispatch = useDispatch();
 	const filterValue = useSelector(selectNameFilter);
-	console.log(filterValue);
 
 	return (
 		<>

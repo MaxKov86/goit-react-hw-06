@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 
 const ContactList = () => {
 	const filterValue = useSelector(selectNameFilter);
-	console.dir(filterValue);
+
 	const contacts = useSelector(selectContacts);
-	console.log(contacts);
+
 	const filtredContacts = contacts.filter(contact =>
 		contact.name.toLowerCase().includes(filterValue.toLowerCase())
 	);
